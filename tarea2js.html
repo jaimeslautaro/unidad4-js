@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 2</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <main>
+        <h1>Ejercicio 1</h1>
+        <div id="ejercicio1">
+            <button id="rojo" value="rojo">Rojo</button>
+            <button id="verde" value="verde">Verde</button>
+            <button id="azul" value="azul">Azul</button>
+        </div>
+        <h1>Ejercicio 2</h1>
+        <div id="ejercicio2">
+            <p>Ingrese un texto a continuación:</p>
+            <textarea name="texto" id="texto" placeholder="Ingrese su texto aquí" onkeyup="cantidadLetras();"></textarea>
+            <p>Cantidad de caracteres usados:
+            <span id="contador"></span></p>
+        </div>
+        <h1>Ejercicio 3</h1>
+        <div id="ejercicio3">
+            <span id="datos">
+
+            </span>
+        </div>
+    </main>
+    <script>
+        //Ejercicio 1
+        var rojo = document.getElementById("rojo");
+        var verde = document.getElementById("verde");
+        var azul = document.getElementById("azul");
+
+        rojo.addEventListener("click",function(){
+            document.getElementById("ejercicio1").style.backgroundColor = "red";
+        });
+
+        verde.addEventListener("click",function(){
+            document.getElementById("ejercicio1").style.backgroundColor = "green";
+        });
+
+        azul.addEventListener("click",function(){
+            document.getElementById("ejercicio1").style.backgroundColor = "blue";
+        });
+
+        //Ejercicio 2
+        function cantidadLetras(){
+            var contenido = document.getElementById("texto");
+            var cantidadCaracteres = document.getElementById("contador");
+            var cantidad = contenido.value.length;
+
+            cantidadCaracteres.innerHTML = cantidad;
+        };
+
+        //Ejercicio 3
+        var alumnos = 
+                [{nombre: 'Juan Gomez',nota: 7},
+                {nombre: 'Pedro Rodriguez',nota: 4},
+                {nombre: 'Roxana García',nota: 8},
+                {nombre: 'Luciano Lopez',nota: 5},
+                {nombre: 'Fernanda Gimenez',nota: 6},
+                {nombre: 'Florencia Martinez',nota: 10},
+                {nombre: 'Raul Sanchez',nota: 7}, 
+                {nombre: 'Sandra Figueroa',nota: 8}];
+        function devolverAprobados(listadoAlumnos){
+            var aprobados = [];
+            listadoAlumnos.forEach(element => {
+                if( parseInt(element["nota"])>= 7 ){
+                    aprobados.push(element);
+                }
+            });
+            return aprobados;
+        };
+           
+        function imprimirAprobados(alumnos){
+            var contenidoTabla = "<table><thead><tr><th>Nombre y apellido</th><th>Nota</th></tr></thead>";
+            aprobados = devolverAprobados(alumnos);
+            
+            aprobados.forEach(element => {
+                var nuevaFila="<tr><th>";
+                nuevaFila+=element["nombre"];
+                nuevaFila+="</th><th>";
+                nuevaFila+=element["nota"];
+                nuevaFila+="</th></tr>";
+
+                contenidoTabla+=nuevaFila;
+            });
+            contenidoTabla+="</table>";
+            return contenidoTabla;
+        };
+        var datos = document.getElementById("datos");
+        datos.innerHTML = imprimirAprobados(alumnos);
+    </script>
+</body>
+</html>

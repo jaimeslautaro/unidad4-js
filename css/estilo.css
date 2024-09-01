@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+#ejercicio1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 15px;
+    background-color: grey;
+}
+
+#rojo,#azul,#verde{
+    margin: 12px;
+    padding: 12px;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.4) 
+}
+
+#rojo{
+    background-color: red;
+}
+
+#azul{
+    background-color: blue;
+}
+
+#verde{
+    background-color: green;
+}
+
+#ejercicio2{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 15px;
+}
+
+div p{
+    margin: 7px;
+}
